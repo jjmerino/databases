@@ -5,6 +5,9 @@
 var http = require("http");
 var url = require('url');
 
+
+var db = require("./models");
+
 var handlers = require('./request-handler');
 var serverHelpers = require('./server-helpers');
 
@@ -33,6 +36,9 @@ var router = function(req, res) {
 
 var server = http.createServer(router);
 
-console.log("Listening on http://" + ip + ":" + port);
-server.listen(port, ip);
+db.sequelize.sync().success(function () {
+  console.log("Listening on http://" + ip + ":" + port);
+  server.listen(port, ip);
+});
+
 
