@@ -5,6 +5,7 @@
   "dependencies": {
     "bluebird": "^2.3.0",
     "chai": "^1.9.1",
+    "express": "^4.9.5",
     "mocha": "^1.21.4",
     "mysql": "^2.5.1",
     "request": "^2.40.0",
